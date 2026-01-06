@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import {
   FlatList,
   StyleSheet,
@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import ListItem from './ListItem';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import AuthContext from '../../context/AuthContext';
 
 const DashboardScreen = () => {
   const navigation = useNavigation();
   const route = useRoute()
+  const {username} = useContext(AuthContext);
   const [list,setList] = useState<Array<string>>(['a']);
 
 
@@ -26,7 +28,7 @@ const renderItem = useCallback(({item}: {item: string}) => {
 
   return (
     <View style={styles.root}>
-      <Text>Welcome {route.params?.username}</Text>
+      <Text>Welcome {username}</Text>
         <TouchableOpacity style={styles.button} onPress={()=>{
           setList([...list, new Date().getTime().toString()]);
         }}>
