@@ -10,6 +10,7 @@ import AuthContext from '../context/AuthContext';
 import NewsScreen from '../srceens/news';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
+import MapsScreen from '../srceens/maps';
 
 const RootStack = createNativeStackNavigator();
 
@@ -54,8 +55,8 @@ const Navigation = () => {
       ) : (
         <RootStack.Group>
           <RootStack.Screen
-            name="Login"
-            component={LoginScreen}
+            name="Maps"
+            component={MapsScreen}
             options={{ headerShown: false }}
           />
         </RootStack.Group>
