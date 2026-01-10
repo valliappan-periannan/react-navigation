@@ -13,8 +13,8 @@ import AuthContext from '../../context/AuthContext';
 const LoginScreen = () => {
   const { setIsLoggedin, updateUsername } = useContext(AuthContext);
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('123');
+  const [password, setPassword] = useState('123');
   const [loading, setLoading] = useState(false);
   return (
     <View style={styles.root}>
@@ -55,7 +55,7 @@ const LoginScreen = () => {
                 setLoading(false);
                 updateUsername(username);
                 setIsLoggedin(true);
-              }, 4000);
+              }, 1000);
             } else {
               Alert.alert('Please enter username and password');
             }

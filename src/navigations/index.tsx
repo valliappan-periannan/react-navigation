@@ -7,6 +7,7 @@ import DrigglingScreen from '../srceens/driggling';
 import CalculatorScreen from '../srceens/calculator';
 import LoginScreen from '../srceens/login';
 import AuthContext from '../context/AuthContext';
+import NewsScreen from '../srceens/news';
 
 const RootStack = createNativeStackNavigator();
 
@@ -16,6 +17,12 @@ const Navigation = () => {
     <RootStack.Navigator>
       {isLoggedin ? (
         <RootStack.Group>
+            <RootStack.Screen
+            name="News"
+            component={NewsScreen}
+            options={{ headerShown: false }}
+          />
+
           <RootStack.Screen
             name="Welcome"
             component={WelcomeScreen}
