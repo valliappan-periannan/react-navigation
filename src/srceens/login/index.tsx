@@ -9,10 +9,12 @@ import {
   View,
 } from 'react-native';
 import AuthContext from '../../context/AuthContext';
+import { useDispatch } from 'react-redux';
+import { updateName } from '../../store/user';
 
 const LoginScreen = () => {
   const { setIsLoggedin, updateUsername } = useContext(AuthContext);
-
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('123');
   const [password, setPassword] = useState('123');
   const [loading, setLoading] = useState(false);
@@ -53,8 +55,9 @@ const LoginScreen = () => {
               setLoading(true);
               setTimeout(() => {
                 setLoading(false);
-                updateUsername(username);
-                setIsLoggedin(true);
+                dispatch(updateName(username))
+                // updateUsername(username);
+                // setIsLoggedin(true);
               }, 1000);
             } else {
               Alert.alert('Please enter username and password');

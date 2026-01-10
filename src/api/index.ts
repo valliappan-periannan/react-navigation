@@ -1,5 +1,6 @@
 import axios from "axios";
 import { API_KEY } from "./keys";
+import { store } from "../store/store";
 
 
 const apiClient = axios.create({
@@ -11,6 +12,8 @@ const apiClient = axios.create({
 })
 
 apiClient.interceptors.request.use(config=>{
+    console.log('-=---=',API_KEY, store.getState().user);
+    
     config.params.apiKey = API_KEY
     return config;
 }, error=>{

@@ -6,18 +6,20 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import { CustomTextProvider } from './src/context/CustomTextContext';
 import Navigation from './src/navigations';
-import DrigglingScreen from './src/srceens/driggling';
 import { AuthProvider } from './src/context/AuthContext';
+import { Provider } from 'react-redux';
+import { store } from './src/store/store';
 
 function App() {
   return (
-    <NavigationContainer>
-      <AuthProvider>
-        <Navigation />
-      </AuthProvider>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <AuthProvider>
+          <Navigation />
+        </AuthProvider>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
